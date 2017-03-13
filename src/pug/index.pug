@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    include base/_head.pug
+
+  body
+    include components/_navbar.pug
+    // first section needs padding for top
+    .section.fixed-nav-pad.sc-color
+      p
+        small
+          | Use your browser developer tools to see the grid respond to different screen sizes.
+    .section
+      .row
+        h1
+          | Welcome to CodeSource
+        p
+          | "This website is used to save a few useful links and resources
+          | for front/back end development. Updates and reasons for choosing
+          | these links belong to Philosophy and Design. But feel free to fork this project in GitHub."  
+
+
+    a(href='#top') Back to Top
+
+    include base/_footer.pug
