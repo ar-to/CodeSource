@@ -1,6 +1,8 @@
 var gulp = require('gulp');//main
 var filter = require('gulp-filter');//filters files with globs
 var uglify = require('gulp-uglify');//used only as needed for dist js vendor files
+var htmlmin = require('gulp-htmlmin');//removed whitespace in html
+var minifyCss = require('gulp-minify-css');
 var pump = require('pump');//used only on uglify
 var sass = require('gulp-sass');//using
 var autoprefixer = require('gulp-autoprefixer');//using
@@ -58,6 +60,7 @@ gulp.task('pug', function(done) {
     .pipe(gulp.dest(callback))//remove return from gulp.src() to avoid returning stream and confusing gulp
     .on('end', done);
 });
+
 //requirejsOptimize works : minifies and concatenates modules w/almond into a single working bundle file
 gulp.task('requireopt', function () {
     /*return gulp.src('./src/modules/*.js')
@@ -76,7 +79,7 @@ gulp.task('requireopt', function () {
         include: ['require.config'],//relative to baseUrl
         //name: "../../tools/almond",//relative to baseURL
         name: "../../bower_components/almond/almond",//relative to baseURL
-        out: "bundle.js"//relative to gulpfile.js or gulp.dest()
+        out: "bundle.js"//relative to gulpfile.js or gulp.dest(); goes to ./dist/js/
       };
     }))
     .pipe(sourcemaps.write('../sourcemaps'))//writes sourcemaps to directory:relative to gulp.dest()!!; comment to remove
@@ -99,6 +102,10 @@ gulp.task('watchsass', ['sass'], function() {
 //only pug watch
 gulp.task('watchpug', ['pug'], function() {
   gulp.watch(paths.pug, ['pug']);
+});
+//only requirejs watch
+gulp.task('watchrjs', ['requireopt'], function() {
+  gulp.watch(paths.require, ['requireopt']);
 });
 //not used unless folders are desired for compiled *.html files
 function callback(file) {
