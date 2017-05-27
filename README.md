@@ -1,6 +1,6 @@
-#CodeSource
+# CodeSource
 
-I plan to break this project into stages that hopefully will get more challenging and also attempt new ways to get something close to a single page app/site. 
+I plan to break this project into stages that hopefully will get more challenging and also attempt new ways to get something close to a single page app/site.
 
 Also, each stage I tried to store it as a git tag so you can pull it by following the commands below
 
@@ -20,7 +20,7 @@ Then to move into a tag and make it your working directory
 $ git checkout -b [branchname] [tagname]
 ```
 
-##Stages by version
+## Stages by version
 
 ### v1.0
 
@@ -32,4 +32,5 @@ $ git checkout -b [branchname] [tagname]
 
 3.Add JS and nav tabs to make it closer to a single page app
 
+### v3.0
 4.Experiment with JS template engine(html templates) and ExpressJS and MongoDatabase to create a CRUD and possibly and SPA
